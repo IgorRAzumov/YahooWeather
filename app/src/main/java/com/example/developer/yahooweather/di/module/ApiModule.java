@@ -1,6 +1,8 @@
 package com.example.developer.yahooweather.di.module;
 
+import com.example.developer.yahooweather.model.api.ApiHelper;
 import com.example.developer.yahooweather.model.api.ApiService;
+import com.example.developer.yahooweather.model.api.IApiHelper;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,11 +21,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Singleton
 @Module
 public class ApiModule {
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "https://query.yahooapis.com/v1/public/";
 
     @Provides
     public ApiService api(Retrofit retrofit) {
         return retrofit.create(ApiService.class);
+    }
+
+    @Provides
+    public IApiHelper retrofitApiHelper(ApiService apiService) {
+        return new ApiHelper(apiService);
     }
 
     @Provides

@@ -2,7 +2,7 @@ package com.example.developer.yahooweather.di.module;
 
 
 import com.example.developer.yahooweather.model.Repository;
-import com.example.developer.yahooweather.model.api.ApiService;
+import com.example.developer.yahooweather.model.api.IApiHelper;
 import com.example.developer.yahooweather.model.cache.ICache;
 
 import javax.inject.Singleton;
@@ -15,7 +15,7 @@ import dagger.Provides;
 public class RepositoryModule {
 
     @Provides
-    public Repository repository(ApiService apiService, ICache cache) {
-        return new Repository(apiService, cache);
+    public Repository repository(IApiHelper apiHelper, ICache cache) {
+        return new Repository(apiHelper, cache);
     }
 }
