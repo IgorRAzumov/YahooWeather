@@ -6,5 +6,18 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 @StateStrategyType(OneExecutionStateStrategy.class)
 public interface MainView extends MvpView {
-    void showMainFragment();
+
+    void initUi();
+
+    void showLoading();
+
+    void showDailyWeatherFragment();
+
+    void showWeatherForecastsFragment();
+
+    void showErrorLoadWeatherMsg();
+
+    void showCityName(String cityName);
+
+    void hideLoading();
 }
