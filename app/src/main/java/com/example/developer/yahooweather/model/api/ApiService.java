@@ -1,6 +1,6 @@
 package com.example.developer.yahooweather.model.api;
 
-import com.example.developer.yahooweather.model.entity.YahooWeatherResponse;
+import com.example.developer.yahooweather.model.entity.api.YahooWeatherResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

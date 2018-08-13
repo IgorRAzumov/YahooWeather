@@ -1,17 +1,17 @@
 package com.example.developer.yahooweather.model.repo;
 
-import com.example.developer.yahooweather.model.entity.Forecast;
-import com.example.developer.yahooweather.model.entity.Item;
-import com.example.developer.yahooweather.model.entity.YahooWeatherResponse;
+import com.example.developer.yahooweather.model.entity.cache.ForecastsWithLocation;
+import com.example.developer.yahooweather.model.entity.cache.FullWeatherForecast;
+import com.example.developer.yahooweather.model.entity.cache.WeatherForecast;
 
 import java.util.List;
 
 import io.reactivex.Single;
 
 public interface IRepository {
-    Single<YahooWeatherResponse> loadWeatherForecast(String cityName);
+    Single<ForecastsWithLocation> loadWeatherForecast(String latitude, String longitude);
 
-    List<Forecast> getCurrentWeatherForecast();
+    List<WeatherForecast> getCurrentWeatherForecast();
 
-    Item getCurrentWeatherItem();
+    FullWeatherForecast getFullWeatherForecast();
 }

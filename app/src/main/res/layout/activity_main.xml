@@ -24,7 +24,8 @@
         android:id="@+id/pb_act_main_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/fl_act_main_forecast_frame"

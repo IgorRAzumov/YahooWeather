@@ -15,10 +15,13 @@ import timber.log.Timber;
 
 @InjectViewState
 public class MainPresenter extends MvpPresenter<MainView> {
-    private final static String NOVOSIBIRSK_CITY_NAME = "novosibirsk";
-    private final Scheduler scheduler;
+    private final static String NOVOSIBIRSK_LATITUDE = "54.99152";
+    private final static String NOVOSIBIRSK_LONGITUDE = "82.957916";
+
     @Inject
     IRepository repository;
+
+    private final Scheduler scheduler;
 
     public MainPresenter(Scheduler scheduler) {
         this.scheduler = scheduler;
@@ -36,13 +39,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
     @SuppressLint("CheckResult")
     private void loadWeatherForecast() {
         repository
-                .loadWeatherForecast(NOVOSIBIRSK_CITY_NAME)
+                .loadWeatherForecast(NOVOSIBIRSK_LATITUDE, NOVOSIBIRSK_LONGITUDE)
                 .subscribeOn(Schedulers.io())
                 .observeOn(scheduler)
-                .subscribe(weatherResponse -> {
+                .subscribe(weatherWithLocation -> {
                     getViewState().hideLoading();
-                    getViewState().showCityName(weatherResponse.getQuery().getResults().getChannel()
-                            .getLocation().getCity());
+                    getViewState().showCityName(weatherWithLocation.getCity());
                     getViewState().showDailyWeatherFragment();
                     getViewState().showWeatherForecastsFragment();
                 }, throwable -> {
