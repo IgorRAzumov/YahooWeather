@@ -1,4 +1,4 @@
-package com.example.developer.yahooweather.model.entity;
+package com.example.developer.yahooweather.model.entity.api;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

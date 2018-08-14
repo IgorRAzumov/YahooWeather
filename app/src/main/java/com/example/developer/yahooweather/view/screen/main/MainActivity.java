@@ -75,7 +75,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     @Override
     public void showErrorLoadWeatherMsg() {
-        Timber.e("ERROR_LOADING_AHTUNG");
+        Timber.d("ERROR_LOADING_AHTUNG");
     }
 
     @Override
@@ -86,5 +86,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void hideLoading() {
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void showCheckNetworkMessage() {
+        Timber.d("error load weather check network");
     }
 }

@@ -2,7 +2,7 @@ package com.example.developer.yahooweather.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.developer.yahooweather.model.entity.Forecast;
+import com.example.developer.yahooweather.model.entity.cache.WeatherForecast;
 import com.example.developer.yahooweather.model.repo.IRepository;
 import com.example.developer.yahooweather.view.adapter.IForecastRow;
 import com.example.developer.yahooweather.view.fragment.weatherForecast.WeatherForecastsView;
@@ -17,7 +17,7 @@ public class WeatherForecastsPresenter extends MvpPresenter<WeatherForecastsView
     @Inject
     IRepository repository;
 
-    private List<Forecast> forecastsList;
+    private List<WeatherForecast> forecastsList;
 
     @Override
     protected void onFirstViewAttach() {
@@ -28,7 +28,7 @@ public class WeatherForecastsPresenter extends MvpPresenter<WeatherForecastsView
 
     @Override
     public void bindWeather(int position, IForecastRow rowView) {
-        Forecast forecast = forecastsList.get(position);
+        WeatherForecast forecast = forecastsList.get(position);
         rowView.setMinTemperature(forecast.getLow());
         rowView.setMaxTemperature(forecast.getHigh());
         rowView.setDate(forecast.getDate());
