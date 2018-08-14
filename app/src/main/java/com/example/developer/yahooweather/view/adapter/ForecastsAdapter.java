@@ -5,9 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.developer.yahooweather.R;
+import com.example.developer.yahooweather.model.imageLoader.IImageLoader;
 import com.example.developer.yahooweather.presenter.IForecastsPresenter;
 
 import butterknife.BindView;
@@ -17,9 +19,11 @@ public class ForecastsAdapter extends RecyclerView.Adapter<ForecastsAdapter.View
     private final IForecastsPresenter presenter;
 
     private final View.OnClickListener forecastClickListener;
+    private final IImageLoader<ImageView> imageLoader;
 
-    public ForecastsAdapter(IForecastsPresenter presenter) {
+    public ForecastsAdapter(IForecastsPresenter presenter, IImageLoader<ImageView> imageLoader) {
         this.presenter = presenter;
+        this.imageLoader = imageLoader;
         forecastClickListener = createForecastClickListener();
     }
 
@@ -58,6 +62,9 @@ public class ForecastsAdapter extends RecyclerView.Adapter<ForecastsAdapter.View
         TextView dateText;
         @BindView(R.id.tv_forecast_item_day)
         TextView dayText;
+        @BindView(R.id.iv_forecast_item_condition)
+        ImageView forecastConditionImage;
+
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -87,6 +94,11 @@ public class ForecastsAdapter extends RecyclerView.Adapter<ForecastsAdapter.View
         @Override
         public void setCondition(String condition) {
             conditionText.setText(condition);
+        }
+
+        @Override
+        public void setConditionImage(String url) {
+            imageLoader.loadImageToContainer(url, forecastConditionImage);
         }
     }
 }

@@ -34,6 +34,7 @@ public class WeatherForecastsPresenter extends MvpPresenter<WeatherForecastsView
         rowView.setDate(forecast.getDate());
         rowView.setDay(forecast.getDay());
         rowView.setCondition(forecast.getText());
+        rowView.setConditionImage(repository.createForecastImageUrl(forecast.getCode()));
     }
 
     @Override

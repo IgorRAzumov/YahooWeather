@@ -11,14 +11,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.developer.yahooweather.App;
 import com.example.developer.yahooweather.R;
+import com.example.developer.yahooweather.model.imageLoader.IImageLoader;
 import com.example.developer.yahooweather.presenter.WeatherForecastsPresenter;
 import com.example.developer.yahooweather.view.adapter.ForecastsAdapter;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +31,9 @@ import butterknife.Unbinder;
 public class WeatherForecastsFragment extends MvpAppCompatFragment implements WeatherForecastsView {
     @BindView(R.id.rv_fr_weather_forecasts_recycler)
     RecyclerView forecastsRecycler;
+
+    @Inject
+    IImageLoader<ImageView> imageLoader;
 
     @InjectPresenter
     WeatherForecastsPresenter presenter;
@@ -53,6 +60,7 @@ public class WeatherForecastsFragment extends MvpAppCompatFragment implements We
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weather_forecasts, container,
                 false);
+        App.getInstance().getAppComponent().inject(this);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -62,8 +70,9 @@ public class WeatherForecastsFragment extends MvpAppCompatFragment implements We
         Context context = getContext();
         if (context != null) {
             forecastsRecycler.setLayoutManager(new LinearLayoutManager(context));
-            forecastsRecycler.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
-            forecastsRecycler.setAdapter(new ForecastsAdapter(presenter));
+            forecastsRecycler.addItemDecoration(new DividerItemDecoration(context,
+                    DividerItemDecoration.VERTICAL));
+            forecastsRecycler.setAdapter(new ForecastsAdapter(presenter, imageLoader));
         }
     }
 

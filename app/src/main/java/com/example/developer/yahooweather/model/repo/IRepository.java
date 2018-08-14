@@ -14,4 +14,6 @@ public interface IRepository {
     List<WeatherForecast> getCurrentWeatherForecast();
 
     FullWeatherForecast getFullWeatherForecast();
+
+    String createForecastImageUrl(String code);
 }

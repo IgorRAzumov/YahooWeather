@@ -7,4 +7,6 @@ import io.reactivex.Single;
 public interface IApiHelper {
 
     Single<YahooWeatherResponse> getWeatherForecast(String latitude, String longitude);
+
+    String createForecastImageUrl(String code);
 }

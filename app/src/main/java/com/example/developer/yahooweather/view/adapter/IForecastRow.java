@@ -10,4 +10,6 @@ public interface IForecastRow {
     void setDay(String day);
 
     void setCondition(String condition);
+
+    void setConditionImage(String url);
 }
