@@ -1,14 +1,12 @@
 package com.example.developer.yahooweather.model.entity.cache;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-import io.realm.annotations.Required;
 
 public class WeatherForecast extends RealmObject {
-    @Required
+    /*@Required
     @PrimaryKey
     private String location_id;
-
+*/
     private String code;
     private String text;
 
@@ -71,7 +69,7 @@ public class WeatherForecast extends RealmObject {
         this.text = text;
         return this;
     }
-
+/*
     public String getLocationId() {
         return location_id;
 
@@ -80,5 +78,5 @@ public class WeatherForecast extends RealmObject {
     public WeatherForecast setLocationId(String locationId) {
         this.location_id = locationId;
         return this;
-    }
+    }*/
 }

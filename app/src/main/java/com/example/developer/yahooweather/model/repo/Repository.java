@@ -12,13 +12,14 @@ import com.example.developer.yahooweather.model.utils.MapHelper;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 
 public class Repository implements IRepository {
     private final IApiHelper weatherApi;
     private final ICache weatherCache;
     private final MapHelper mapHelper;
     private final INetworkStatus networkStatus;
+
     private ForecastsWithLocation currentWeatherForecast;
 
     public Repository(IApiHelper weatherApi, ICache weatherCache, MapHelper mapHelper,
@@ -31,7 +32,7 @@ public class Repository implements IRepository {
 
     @SuppressLint("CheckResult")
     @Override
-    public Single<ForecastsWithLocation> loadWeatherForecast(String latitude, String longitude) {
+    public Maybe<ForecastsWithLocation> loadWeatherForecast(String latitude, String longitude) {
         if (networkStatus.isOnline()) {
             return weatherApi
                     .getWeatherForecast(latitude, longitude)
@@ -39,20 +40,15 @@ public class Repository implements IRepository {
                     .doOnSuccess(weather -> {
                         currentWeatherForecast = weather;
                         weatherCache.saveForecastWithLocation(weather);
-                    });
+                    })
+                    .toMaybe();
         }
-        return weatherCache.getForecastWithLocation(latitude, longitude).toSingle();
+
+        return weatherCache
+                .getForecastWithLocation(latitude, longitude)
+                .doOnSuccess(weather -> currentWeatherForecast = weather);
     }
 
-
-    /*private boolean checkCurrentWeatherBeforeResponse(String latitude, String longitude) {
-        String currentForecastId = ForecastsWithLocation.createId(
-                currentWeatherForecast.getLatitude(), currentWeatherForecast.getLongitude());
-        String neededForecastId = ForecastsWithLocation.createId(latitude, longitude);
-        return currentForecastId.equals(neededForecastId)){
-
-        }
-*/
     @Override
     public List<WeatherForecast> getCurrentWeatherForecast() {
         return currentWeatherForecast.getForecasts();

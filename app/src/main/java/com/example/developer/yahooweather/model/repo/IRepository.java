@@ -6,10 +6,10 @@ import com.example.developer.yahooweather.model.entity.cache.WeatherForecast;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 
 public interface IRepository {
-    Single<ForecastsWithLocation> loadWeatherForecast(String latitude, String longitude);
+    Maybe<ForecastsWithLocation> loadWeatherForecast(String latitude, String longitude);
 
     List<WeatherForecast> getCurrentWeatherForecast();
 

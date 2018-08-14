@@ -51,6 +51,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
                     getViewState().hideLoading();
                     getViewState().showErrorLoadWeatherMsg();
                     Timber.e(throwable);
+                }, () -> {
+                    getViewState().hideLoading();
+                    getViewState().showCheckNetworkMessage();
                 });
     }
 }

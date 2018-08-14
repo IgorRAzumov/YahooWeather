@@ -112,7 +112,7 @@ public class ForecastsWithLocation extends RealmObject {
             return;
         }
         for (WeatherForecast forecast : forecasts) {
-            forecast.setLocationId(weatherLocationId);
+            // forecast.setLocationId(weatherLocationId);
         }
     }
 }
