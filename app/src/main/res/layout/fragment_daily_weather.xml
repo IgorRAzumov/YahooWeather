@@ -15,6 +15,8 @@
         android:layout_marginRight="@dimen/tv_fr_daily_weather_date_marg_end"
         android:layout_marginStart="@dimen/tv_fr_daily_weather_date_marg_start"
         android:layout_marginTop="@dimen/tv_fr_daily_weather_date_marg_top"
+        android:text="@string/tv_fr_daily_weather_date_text"
+        android:textStyle="bold"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintEnd_toEndOf="parent"

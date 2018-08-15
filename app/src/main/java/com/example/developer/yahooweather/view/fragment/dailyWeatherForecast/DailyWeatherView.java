@@ -6,8 +6,6 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 @StateStrategyType(AddToEndSingleStrategy.class)
 public interface DailyWeatherView extends MvpView {
-    void setDate(String date);
-
     void setTemperature(String temp);
 
     void setCondition(String text);

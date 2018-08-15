@@ -10,4 +10,5 @@
     <string name="tv_forecast_item_temp_min_label_text">MIN</string>
     <string name="act_splash_screen_retry_text">RETRY</string>
     <string name="error_load_weather">Network error. Check network and Try again.</string>
+    <string name="tv_fr_daily_weather_date_text">TODAY WEATHER</string>
 </resources>

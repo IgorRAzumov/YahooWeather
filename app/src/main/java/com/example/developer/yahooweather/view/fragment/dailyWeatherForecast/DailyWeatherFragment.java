@@ -68,11 +68,6 @@ public class DailyWeatherFragment extends MvpAppCompatFragment implements DailyW
     }
 
     @Override
-    public void setDate(String date) {
-        dateText.setText(date);
-    }
-
-    @Override
     public void setTemperature(String temp) {
         temperatureText.setText(temp);
     }

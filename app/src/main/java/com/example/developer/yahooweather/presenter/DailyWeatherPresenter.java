@@ -23,7 +23,6 @@ public class DailyWeatherPresenter extends MvpPresenter<DailyWeatherView> {
     }
 
     private void onForecastChange() {
-        getViewState().setDate("TODAY WEATHER:");
         getViewState().setTemperature(dailyWeatherForecast.getTemp());
         getViewState().setCondition(dailyWeatherForecast.getText());
         getViewState().setSunset(dailyWeatherForecast.getSunset());
@@ -31,24 +30,5 @@ public class DailyWeatherPresenter extends MvpPresenter<DailyWeatherView> {
         getViewState().showConditionImage(repository.createForecastImageUrl(
                 dailyWeatherForecast.getCode()));
     }
-
-/*
-    private String formatDate(String dateString) {
-        Locale locale = Locale.getDefault();
-        SimpleDateFormat inputDateFormat = new SimpleDateFormat("EEE, d MMM yyyy hh:mm a z",
-                locale);
-        Date date;
-        try {
-            date = inputDateFormat.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return "";
-        }
-
-        SimpleDateFormat outputDateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss",
-                locale);
-        System.out.println(outputDateFormat.format(date));
-        return dateString;
-*/
 }
 

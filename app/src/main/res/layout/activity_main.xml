@@ -3,16 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".view.screen.main.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tb_act_main_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <include layout="@layout/toolbar" />
 
     <FrameLayout
         android:id="@+id/fl_act_main_daily_frame"
