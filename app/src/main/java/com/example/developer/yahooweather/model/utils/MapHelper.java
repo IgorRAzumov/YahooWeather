@@ -56,7 +56,7 @@ public class MapHelper {
         List<WeatherForecast> weatherForecasts = new RealmList<>();
         for (Forecast forecast : item.getForecast()) {
             weatherForecasts.add(new WeatherForecast()
-                    //.setLocationId(locationId)
+                    .setText(forecast.getText())
                     .setCode(forecast.getCode())
                     .setDate(forecast.getDate())
                     .setDay(forecast.getDay())

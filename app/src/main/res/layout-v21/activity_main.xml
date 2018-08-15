@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".view.screen.main.MainActivity">
 
@@ -17,7 +17,9 @@
     <FrameLayout
         android:id="@+id/fl_act_main_daily_frame"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:elevation="4dp" />
 
     <ProgressBar
         android:id="@+id/pb_act_main_loading"
@@ -30,6 +32,6 @@
         android:id="@+id/fl_act_main_forecast_frame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="@integer/fl_act_main_forecast_frame_weight" />
+        android:layout_weight="2" />
 
 </LinearLayout>

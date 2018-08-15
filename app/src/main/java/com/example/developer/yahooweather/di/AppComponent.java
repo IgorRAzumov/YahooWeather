@@ -4,7 +4,9 @@ import com.example.developer.yahooweather.di.module.ImageLoaderModule;
 import com.example.developer.yahooweather.di.module.RepositoryModule;
 import com.example.developer.yahooweather.presenter.DailyWeatherPresenter;
 import com.example.developer.yahooweather.presenter.MainPresenter;
+import com.example.developer.yahooweather.presenter.SplashPresenter;
 import com.example.developer.yahooweather.presenter.WeatherForecastsPresenter;
+import com.example.developer.yahooweather.view.fragment.dailyWeatherForecast.DailyWeatherFragment;
 import com.example.developer.yahooweather.view.fragment.weatherForecast.WeatherForecastsFragment;
 
 import javax.inject.Singleton;
@@ -22,4 +24,8 @@ public interface AppComponent {
     void inject(WeatherForecastsPresenter presenter);
 
     void inject(WeatherForecastsFragment weatherForecastsFragment);
+
+    void inject(DailyWeatherFragment dailyWeatherFragment);
+
+    void inject(SplashPresenter presenter);
 }

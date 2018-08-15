@@ -1,80 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
 
     <ImageView
         android:id="@+id/iv_forecast_item_condition"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_margin="8dp"
+        android:layout_width="@dimen/iv_forecast_item_condition_width"
+        android:layout_height="@dimen/iv_forecast_item_condition_height"
+        android:layout_marginLeft="@dimen/iv_forecast_item_condition_marg_left"
+        android:layout_marginStart="@dimen/iv_forecast_item_condition_marg_start"
+        android:layout_marginTop="@dimen/iv_forecast_item_condition_marg_top"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_forecast_item_temp_max_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tv_forecast_item_temp_max_label_marg_bot"
+        android:layout_marginLeft="@dimen/tv_forecast_item_temp_max_label_marg_left"
+        android:layout_marginStart="@dimen/tv_forecast_item_temp_max_label_marg_left"
+        android:text="@string/tv_forecast_item_temp_max_label_text"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="@dimen/_forecast_item_temp_max_label_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_forecast_item_temp_min" />
+
+
+    <TextView
+        android:id="@+id/tv_forecast_item_temp_min_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tv_forecast_item_temp_min_label_marg_bot"
+        android:layout_marginLeft="@dimen/tv_forecast_item_temp_min_label_marg_left"
+        android:layout_marginStart="@dimen/tv_forecast_item_temp_min_label_marg_start"
+        android:layout_marginTop="@dimen/tv_forecast_item_temp_min_label_marg_top"
+        android:gravity="center"
+        android:text="MIN"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/tv_forecast_item_temp_min_label_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_forecast_item_condition" />
 
     <TextView
         android:id="@+id/tv_forecast_item_temp_min"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginTop="@dimen/tv_forecast_item_temp_min_marg_top"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="32sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_forecast_item_temp_max"
-        app:layout_constraintEnd_toStartOf="@+id/tv_forecast_item_temp_divider" />
-
-    <TextView
-        android:id="@+id/tv_forecast_item_temp_divider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_forecast_item_temp_max"
-        app:layout_constraintEnd_toStartOf="@+id/tv_forecast_item_temp_max" />
+        android:textSize="@dimen/tv_forecast_item_temp_min_text_size"
+        app:layout_constraintStart_toEndOf="@+id/tv_forecast_item_temp_min_label"
+        app:layout_constraintTop_toBottomOf="@+id/iv_forecast_item_condition"
+        tools:text="37" />
 
     <TextView
         android:id="@+id/tv_forecast_item_temp_max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/tv_forecast_item_temp_max_marg_bot"
+        android:layout_marginTop="@dimen/tv_forecast_item_temp_max_marg_top"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/tv_forecast_item_temp_max_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_forecast_item_temp_max_label"
+        app:layout_constraintTop_toBottomOf="@+id/iv_forecast_item_condition"
+        tools:text="39" />
 
     <TextView
         android:id="@+id/tv_forecast_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/tv_forecast_item_date_marg_left"
+        android:layout_marginStart="@dimen/tv_forecast_item_date_marg_start"
+        android:layout_marginTop="@dimen/tv_forecast_item_date_marg_top"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         app:layout_constraintStart_toEndOf="@+id/iv_forecast_item_condition"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="date" />
 
     <TextView
         android:id="@+id/tv_forecast_item_condition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_forecast_item_condition" />
+        android:layout_marginLeft="@dimen/tv_forecast_item_condition_marg_left"
+        android:layout_marginStart="@dimen/tv_forecast_item_condition_marg_left"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_forecast_item_condition"
+        app:layout_constraintStart_toEndOf="@+id/iv_forecast_item_condition"
+        tools:text="condition" />
 
 
     <TextView
         android:id="@+id/tv_forecast_item_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/iv_forecast_item_condition"
-        app:layout_constraintTop_toBottomOf="@+id/tv_forecast_item_date" />
+        android:layout_marginLeft="@dimen/tv_forecast_item_day_marg_left"
+        android:layout_marginStart="@dimen/tv_forecast_item_day_marg_start"
+        android:layout_marginTop="@dimen/tv_forecast_item_day_marg_top"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toEndOf="@+id/tv_forecast_item_date"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="day" />
 </android.support.constraint.ConstraintLayout>

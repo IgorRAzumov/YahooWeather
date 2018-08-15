@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-    private String sunrise;
-    private String sunset;
-
-
--->
-
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/cl_fr_daily_weather_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.dailyWeatherForecast.DailyWeatherFragment">
 
     <TextView
         android:id="@+id/tv_fr_daily_weather_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/tv_fr_daily_weather_date_marg_end"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_date_marg_start"
+        android:layout_marginRight="@dimen/tv_fr_daily_weather_date_marg_end"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_date_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_date_marg_top"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintBottom_toTopOf="@+id/iv_fr_daily_weather_condition_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,58 +25,98 @@
 
     <ImageView
         android:id="@+id/iv_fr_daily_weather_condition_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_fr_daily_weather_temp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/iv_fr_daily_weather_condition_image_width"
+        android:layout_height="@dimen/iv_fr_daily_weather_condition_image_height"
+        android:layout_marginLeft="@dimen/iv_fr_daily_weather_condition_image_marg_left"
+        android:layout_marginStart="@dimen/iv_fr_daily_weather_condition_image_marg_start"
+        android:layout_marginTop="@dimen/iv_fr_daily_weather_condition_image_marg_top"
+        app:layout_constraintStart_toEndOf="@+id/tv_fr_daily_weather_sunshine"
         app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date" />
 
     <TextView
         android:id="@+id/tv_fr_daily_weather_temp"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_temp_marg_left"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_temp_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_temp_marg_top"
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/tv_fr_daily_weather_condition"
+        android:textSize="@dimen/tv_fr_daily_weather_temp_text_size"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_fr_daily_weather_condition_image"
-        tools:text="TEM" />
+        app:layout_constraintStart_toEndOf="@+id/iv_fr_daily_weather_condition_image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date"
+        tools:text="32" />
 
     <TextView
         android:id="@+id/tv_fr_daily_weather_condition"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="@dimen/tv_fr_daily_weather_condition_marg_end"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_condition_marg_left"
+        android:layout_marginRight="@dimen/tv_fr_daily_weather_condition_marg_end"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_condition_marg_left"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_condition_marg_top"
         android:gravity="center"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:textSize="@dimen/tv_fr_daily_weather_condition_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_temp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_fr_daily_weather_condition_image"
         tools:text="condition" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+        android:id="@+id/tv_fr_daily_weather_sunset_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_sunset_label_marg_start"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_sunset_label_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_sunset_label_marg_top"
+        android:text="@string/tv_fr_daily_weather_sunset_label_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
+        android:id="@+id/tv_fr_daily_weather_sunshine_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="333dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_sunshine_label_marg_start"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_sunshine_label_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_sunshine_label_marg_top"
+        android:text="@string/tv_fr_daily_weather_sunshine_label_text"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_condition" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_sunset_label" />
 
+    <TextView
+        android:id="@+id/tv_fr_daily_weather_sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_sunset_marg_left"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_sunset_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_sunset_marg_top"
+        app:layout_constraintStart_toEndOf="@+id/tv_fr_daily_weather_sunset_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date" />
+
+    <TextView
+        android:id="@+id/tv_fr_daily_weather_sunshine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tv_fr_daily_weather_sunshine_marg_left"
+        android:layout_marginStart="@dimen/tv_fr_daily_weather_sunshine_marg_start"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_sunshine_marg_top"
+        app:layout_constraintStart_toEndOf="@+id/tv_fr_daily_weather_sunshine_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_sunset" />
+
+    <TextView
+        android:id="@+id/tv_fr_daily_weather_degrees_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tv_fr_daily_weather_degrees_unit_marg_top"
+        android:text="@string/tv_fr_daily_weather_degrees_unit_text"
+        android:textSize="@dimen/tv_fr_daily_weather_degrees_unit_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_fr_daily_weather_temp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date" />
 </android.support.constraint.ConstraintLayout>

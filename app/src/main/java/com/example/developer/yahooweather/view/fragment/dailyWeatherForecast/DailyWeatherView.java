@@ -8,4 +8,10 @@ public interface DailyWeatherView extends MvpView {
     void setTemperature(String temp);
 
     void setCondition(String text);
+
+    void setSunset(String sunset);
+
+    void setSunshine(String sunshine);
+
+    void showConditionImage(String url);
 }
