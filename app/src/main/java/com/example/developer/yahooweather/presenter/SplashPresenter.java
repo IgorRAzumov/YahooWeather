@@ -33,7 +33,6 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
         getViewState().startLoadingAnim();
     }
 
-
     @SuppressLint("CheckResult")
     private void loadWeatherForecast() {
         repository
@@ -42,13 +41,19 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
                 .observeOn(scheduler)
                 .subscribe(weatherWithLocation -> {
                     getViewState().setLoading(true);
+                    getViewState().showMainScreen();
                 }, throwable -> {
-                    getViewState().setLoading(true);
-                    getViewState().showErrorLoadWeatherMsg();
+                    errorLoadWeather();
                     Timber.e(throwable);
-                }, () -> {
-                    getViewState().setLoading(true);
-                    getViewState().showCheckNetworkMessage();
-                });
+                }, this::errorLoadWeather);
+    }
+
+    private void errorLoadWeather() {
+        getViewState().setLoading(true);
+        getViewState().showErrorLoadWeatherMsg();
+    }
+
+    public void reload() {
+        onFirstViewAttach();
     }
 }

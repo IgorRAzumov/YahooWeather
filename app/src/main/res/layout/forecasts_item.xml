@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/iv_forecast_item_condition_marg_left"
         android:layout_marginStart="@dimen/iv_forecast_item_condition_marg_start"
         android:layout_marginTop="@dimen/iv_forecast_item_condition_marg_top"
-        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/iv_forecast_item_condition_dsec"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +42,7 @@
         android:layout_marginStart="@dimen/tv_forecast_item_temp_min_label_marg_start"
         android:layout_marginTop="@dimen/tv_forecast_item_temp_min_label_marg_top"
         android:gravity="center"
-        android:text="MIN"
+        android:text="@string/tv_forecast_item_temp_min_label_text"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="@dimen/tv_forecast_item_temp_min_label_text_size"
         android:textStyle="bold"

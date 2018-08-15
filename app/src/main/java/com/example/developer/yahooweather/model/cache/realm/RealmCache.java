@@ -5,9 +5,9 @@ import com.example.developer.yahooweather.model.entity.cache.ForecastsWithLocati
 
 import io.reactivex.Maybe;
 import io.realm.Realm;
-import timber.log.Timber;
 
 public class RealmCache implements ICache {
+    private static final String ID = "id";
 
     @Override
     public Maybe<ForecastsWithLocation> getForecastWithLocation(String latitude, String longitude) {
@@ -33,10 +33,8 @@ public class RealmCache implements ICache {
 
                 weather.setId(weatherLocationId);
                 weather.setFullWeatherForecastId(weatherLocationId);
-                weather.setForecastsId(weatherLocationId);
 
                 realm.insertOrUpdate(weather);
-                Timber.d("insert_updated");
             });
         }
     }
@@ -45,7 +43,7 @@ public class RealmCache implements ICache {
                                                           Realm realm) {
         return realm
                 .where(ForecastsWithLocation.class)
-                .equalTo("id", ForecastsWithLocation.createId(latitude, longitude))
+                .equalTo(ID, ForecastsWithLocation.createId(latitude, longitude))
                 .findFirst();
     }
 }

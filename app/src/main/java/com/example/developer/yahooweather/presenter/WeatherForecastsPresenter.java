@@ -41,9 +41,4 @@ public class WeatherForecastsPresenter extends MvpPresenter<WeatherForecastsView
     public int getForecastsCount() {
         return forecastsList == null ? 0 : forecastsList.size();
     }
-
-    @Override
-    public void onForecastClick(int position) {
-
-    }
 }

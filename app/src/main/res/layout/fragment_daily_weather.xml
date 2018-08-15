@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_fr_daily_weather_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.dailyWeatherForecast.DailyWeatherFragment">
@@ -30,6 +29,7 @@
         android:layout_marginLeft="@dimen/iv_fr_daily_weather_condition_image_marg_left"
         android:layout_marginStart="@dimen/iv_fr_daily_weather_condition_image_marg_start"
         android:layout_marginTop="@dimen/iv_fr_daily_weather_condition_image_marg_top"
+        android:contentDescription="@string/iv_fr_daily_weather_condition_image_desc"
         app:layout_constraintStart_toEndOf="@+id/tv_fr_daily_weather_sunshine"
         app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_date" />
 
@@ -110,7 +110,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_fr_daily_weather_sunset" />
 
     <TextView
-        android:id="@+id/tv_fr_daily_weather_degrees_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tv_fr_daily_weather_degrees_unit_marg_top"

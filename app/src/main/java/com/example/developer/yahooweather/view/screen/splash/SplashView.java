@@ -13,5 +13,5 @@ public interface SplashView extends MvpView {
 
     void showErrorLoadWeatherMsg();
 
-    void showCheckNetworkMessage();
+    void showMainScreen();
 }

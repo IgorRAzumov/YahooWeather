@@ -18,26 +18,18 @@ import butterknife.ButterKnife;
 public class ForecastsAdapter extends RecyclerView.Adapter<ForecastsAdapter.ViewHolder> {
     private final IForecastsPresenter presenter;
 
-    private final View.OnClickListener forecastClickListener;
     private final IImageLoader<ImageView> imageLoader;
 
     public ForecastsAdapter(IForecastsPresenter presenter, IImageLoader<ImageView> imageLoader) {
         this.presenter = presenter;
         this.imageLoader = imageLoader;
-        forecastClickListener = createForecastClickListener();
-    }
-
-    private View.OnClickListener createForecastClickListener() {
-        return view -> presenter.onForecastClick((int) view.getTag());
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.forecasts_item, parent,
-                false);
-        view.setOnClickListener(forecastClickListener);
-        return new ViewHolder(view);
+        return new ViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.forecasts_item, parent, false));
     }
 
     @Override

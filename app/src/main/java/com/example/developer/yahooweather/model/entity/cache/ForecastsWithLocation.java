@@ -106,14 +106,5 @@ public class ForecastsWithLocation extends RealmObject {
             fullWeatherForecast.setLocationId(weatherLocationId);
         }
     }
-
-    public void setForecastsId(String weatherLocationId) {
-        if (forecasts == null || forecasts.size() == 0) {
-            return;
-        }
-        for (WeatherForecast forecast : forecasts) {
-            // forecast.setLocationId(weatherLocationId);
-        }
-    }
 }
 

@@ -6,6 +6,4 @@ public interface IForecastsPresenter {
     void bindWeather(int pos, IForecastRow rowView);
 
     int getForecastsCount();
-
-    void onForecastClick(int position);
 }

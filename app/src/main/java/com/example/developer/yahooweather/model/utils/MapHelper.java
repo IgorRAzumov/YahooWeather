@@ -31,9 +31,8 @@ public class MapHelper {
         List<WeatherForecast> forecastList = getForecastList(item, locationId);
         FullWeatherForecast fullWeatherForecast = getFullWeatherForecast(item, wind, condition,
                 astronomy, locationId);
-        ForecastsWithLocation forecastsWithLocation = getForecastWithLocation(location, item,
+        return getForecastWithLocation(location, item,
                 fullWeatherForecast, forecastList, locationId);
-        return forecastsWithLocation;
     }
 
     private ForecastsWithLocation getForecastWithLocation(Location location, Item item,

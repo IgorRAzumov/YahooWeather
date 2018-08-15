@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Yahoo Weather</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv_fr_daily_weather_sunset_label_text">Sunset</string>
     <string name="tv_fr_daily_weather_sunshine_label_text">Sunshine</string>
     <string name="tv_fr_daily_weather_degrees_unit_text">C</string>
     <string name="tv_forecast_item_temp_max_label_text">MAX</string>
     <string name="iv_act_splash_screen">loading logotip</string>
+    <string name="iv_forecast_item_condition_dsec">condition image</string>
+    <string name="iv_fr_daily_weather_condition_image_desc">condition image</string>
+    <string name="tv_forecast_item_temp_min_label_text">MIN</string>
+    <string name="act_splash_screen_retry_text">RETRY</string>
+    <string name="error_load_weather">Network error. Check network and Try again.</string>
 </resources>

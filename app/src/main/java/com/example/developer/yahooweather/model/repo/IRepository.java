@@ -16,4 +16,6 @@ public interface IRepository {
     FullWeatherForecast getFullWeatherForecast();
 
     String createForecastImageUrl(String code);
+
+    String getCurrentWeatherLocation();
 }

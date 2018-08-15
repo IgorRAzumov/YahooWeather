@@ -63,4 +63,9 @@ public class Repository implements IRepository {
     public String createForecastImageUrl(String code) {
         return weatherApi.createForecastImageUrl(code);
     }
+
+    @Override
+    public String getCurrentWeatherLocation() {
+        return currentWeatherForecast.getCity();
+    }
 }

@@ -11,17 +11,10 @@ public interface MainView extends MvpView {
     @StateStrategyType(AddToEndSingleStrategy.class)
     void initUi();
 
-    void showLoading();
-
     void showDailyWeatherFragment();
 
     void showWeatherForecastsFragment();
 
-    void showErrorLoadWeatherMsg();
-
+    @StateStrategyType(AddToEndSingleStrategy.class)
     void showCityName(String cityName);
-
-    void hideLoading();
-
-    void showCheckNetworkMessage();
 }
